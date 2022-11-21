@@ -18,8 +18,8 @@ public class Studs {
     public static void main(String a) {
         ArrayList<Student> earr = new ArrayList<Student>();
         while (true) {
-            System.out.println("Select an option \n 1 - Add Employee \n 2 - View Employee \n 3 - Search an Employee \n" +
-                    "4 - Delete an Employee \n 5 - Exit");
+            System.out.println("Select an option \n 1 - Add  \n 2 - View  \n 3 - Search  \n" +
+                    "4 - Delete  \n 5 - Exit");
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             switch (n) {
@@ -69,7 +69,22 @@ public class Studs {
                         }
                     }
                     break;
+                case 4 :
+                    System.out.println("Enter the admission  number");
+                    Scanner obj2 = new Scanner(System.in);
+                    String ecode2 = obj2.next();
+                    for (Student e1 : earr){
+                        if (ecode2.equals(e1)){
+                            earr.remove(e1);
+                        }
+                    }
+                    break;
+                case 5:System.exit(0);
+                       break;
+                default:
+                    System.out.println("invalid");
+            }
             }
         }
     }
-}
+
