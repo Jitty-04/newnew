@@ -39,7 +39,7 @@ public class Studs {
                     earr.add(e);
                     break;
                 case 2 :
-                    System.out.println("Employee Details Showing");
+                    System.out.println("Student Details Showing");
                     for (Student emp : earr) {
                         System.out.println("Printing details of student " );
                         System.out.println(emp.name);
@@ -47,6 +47,26 @@ public class Studs {
                         System.out.println(emp.admno);
                         System.out.println(emp.college);
 
+                    }
+                    break;
+
+                case 3 :
+                    System.out.println("Enter Admission no:");
+                    Scanner obj1 = new Scanner(System.in);
+                    String ecode1 = obj1.next();
+                    for (Student e1 : earr) {
+                        if (ecode1 == e1.admno){
+                            System.out.println("Details of student with  admissionno " + ecode1 + "is ");
+                            System.out.println(e1.name);
+                            System.out.println(e1.rollnumber);
+                            System.out.println(e1.admno);
+                            System.out.println(e1.college);
+
+                            break;
+                        }
+                        else {
+                            System.out.println("No such student  found");
+                        }
                     }
                     break;
             }
