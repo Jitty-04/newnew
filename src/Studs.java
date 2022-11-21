@@ -38,6 +38,17 @@ public class Studs {
                     Student e = new Student(name, rollnumber, admno, college);
                     earr.add(e);
                     break;
+                case 2 :
+                    System.out.println("Employee Details Showing");
+                    for (Student emp : earr) {
+                        System.out.println("Printing details of student " );
+                        System.out.println(emp.name);
+                        System.out.println(emp.rollnumber);
+                        System.out.println(emp.admno);
+                        System.out.println(emp.college);
+
+                    }
+                    break;
             }
         }
     }
