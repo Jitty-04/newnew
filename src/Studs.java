@@ -69,7 +69,22 @@ public class Studs {
                         }
                     }
                     break;
+                case 4 :
+                    System.out.println("Enter the admission  number");
+                    Scanner obj2 = new Scanner(System.in);
+                    String ecode2 = obj2.next();
+                    for (Student e1 : earr){
+                        if (ecode2.equals(e1)){
+                            earr.remove(e1);
+                        }
+                    }
+                    break;
+                case 5:System.exit(0);
+                       break;
+                default:
+                    System.out.println("invalid");
+            }
             }
         }
     }
-}
+
