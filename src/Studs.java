@@ -1,3 +1,4 @@
+import com.google.gson.Gson;
 
 import java.util.*;
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
     String admno;
     String college;
 
-            public Student(String name, int rollnumber, String admno, String college) {
+    public Student(String name, int rollnumber, String admno, String college) {
                 this.name = name;
                 this.rollnumber = rollnumber;
                 this.admno = admno;
@@ -15,11 +16,12 @@ import java.util.ArrayList;
             }
         }
 public class Studs {
-    public static void main(String a) {
+    public static void main(String[] arg) {
+        ArrayList<String> jsonarr=new ArrayList<>();
         ArrayList<Student> earr = new ArrayList<Student>();
         while (true) {
             System.out.println("Select an option \n 1 - Add  \n 2 - View  \n 3 - Search  \n" +
-                    "4 - Delete  \n 5 - Exit");
+                    "4 - Delete  \n 5 - gson\n 6-exit");
             Scanner input = new Scanner(System.in);
             int n = input.nextInt();
             switch (n) {
@@ -37,6 +39,8 @@ public class Studs {
 
                     Student e = new Student(name, rollnumber, admno, college);
                     earr.add(e);
+                    jsonarr.add(new Gson().toJson(e));
+
                     break;
                 case 2 :
                     System.out.println("Student Details Showing");
@@ -55,7 +59,7 @@ public class Studs {
                     Scanner obj1 = new Scanner(System.in);
                     String ecode1 = obj1.next();
                     for (Student e1 : earr) {
-                        if (ecode1 == e1.admno){
+                        if (e1.admno.equals(ecode1)){
                             System.out.println("Details of student with  admissionno " + ecode1 + "is ");
                             System.out.println(e1.name);
                             System.out.println(e1.rollnumber);
@@ -74,12 +78,16 @@ public class Studs {
                     Scanner obj2 = new Scanner(System.in);
                     String ecode2 = obj2.next();
                     for (Student e1 : earr){
-                        if (ecode2.equals(e1)){
+                        if (e1.admno.equals(ecode2)){
                             earr.remove(e1);
+                            break;
                         }
                     }
                     break;
-                case 5:System.exit(0);
+                case 5:
+                    System.out.println(jsonarr);
+                    break;
+                case 6:System.exit(0);
                        break;
                 default:
                     System.out.println("invalid");
